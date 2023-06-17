@@ -35,3 +35,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# videos
+videos/*
+public/videos/*
+
+# env
+.env
