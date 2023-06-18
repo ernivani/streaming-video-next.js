@@ -54,18 +54,24 @@ export default function Home() {
 	}, []);
 
 	return (
-		<div>
+		<div className="container">
 			<form onSubmit={onSubmit}>
-				<input
-					type="file"
-					onChange={(e) => setFile(e.target.files?.[0] || null)}
-				/>
-				<input
-					type="text"
-					value={videoName}
-					onChange={(e) => setVideoName(e.target.value)}
-					placeholder="Video Name"
-				/>
+				<label>
+					Select File:
+					<input
+						type="file"
+						onChange={(e) => setFile(e.target.files?.[0] || null)}
+					/>
+				</label>
+				<label>
+					Video Name:
+					<input
+						type="text"
+						value={videoName}
+						onChange={(e) => setVideoName(e.target.value)}
+						placeholder="Video Name"
+					/>
+				</label>
 				<button type="submit" disabled={loading}>
 					Upload
 				</button>
@@ -85,6 +91,60 @@ export default function Home() {
 
 				<button onClick={getVideos}>Refresh</button>
 			</div>
+
+			<style jsx>{`
+				.container {
+					max-width: 600px;
+					margin: 0 auto;
+					padding: 20px;
+				}
+
+				form {
+					margin-bottom: 20px;
+				}
+
+				label {
+					display: block;
+					margin-bottom: 10px;
+				}
+
+				input[type="file"],
+				input[type="text"],
+				button {
+					margin-top: 5px;
+				}
+
+				button {
+					padding: 8px 16px;
+					background-color: #007bff;
+					color: #fff;
+					border: none;
+					cursor: pointer;
+				}
+
+				p {
+					margin-top: 10px;
+				}
+
+				h1 {
+					margin-bottom: 10px;
+				}
+
+				a {
+					display: block;
+					margin-bottom: 5px;
+					color: #007bff;
+					text-decoration: none;
+				}
+
+				button {
+					padding: 8px 16px;
+					background-color: #007bff;
+					color: #fff;
+					border: none;
+					cursor: pointer;
+				}
+			`}</style>
 		</div>
 	);
 }
